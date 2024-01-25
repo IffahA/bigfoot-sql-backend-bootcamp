@@ -8,6 +8,14 @@ class SightingsRouter {
   routes() {
     // we will insert routes into here later on
     router.get("/", this.controller.getAll.bind(this.controller));
+    router.get(
+      "/:sightingId/comments",
+      this.controller.getComment.bind(this.controller)
+    );
+    router.post(
+      "/:sightingId/comments",
+      this.controller.addComment.bind(this.controller)
+    );
     router.get("/:sightingId", this.controller.getOne.bind(this.controller));
     router.post("/sighting", this.controller.add.bind(this.controller));
     return router;
