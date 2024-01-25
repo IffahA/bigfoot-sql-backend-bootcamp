@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.comment);
+      this.belongsToMany(models.category, {
+        through: models.sighting_categories,
+      });
     }
   }
   Sighting.init(
